@@ -3,10 +3,10 @@
 # PROSES: PERBANDINGAN JIKA A < 0 : USIA TIDAK VALID DAN JIKA A < 12TH : 30K DAN JIKA A > 12 : 50K
 # OUTPUT: HARGA TIKET 
 
-A = int(input('MASUKKAN USIA ANDA: '))
-if A < 0 :
+Usia_penonton = int(input('MASUKKAN USIA ANDA: '))
+if Usia_penonton <=0 :
     print('USIA ANDA TIDAK VALID')
-elif A < 12 and A > 0:
+elif Usia_penonton< 12 and Usia_penonton > 0:
     print("HARGA TIKET ANDA: 30 RIBU")
 else :
     print("HARGA TIKET ANDA: 60 RIBU")
