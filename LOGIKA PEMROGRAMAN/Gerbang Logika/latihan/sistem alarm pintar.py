@@ -16,11 +16,12 @@ if kaca_pecah == "lempar":
     jendela_pecah = True
 
 
-if pintu_terbuka and sistem_aktif:
+
+alarm_on = (pintu_terbuka and sistem_aktif) or jendela_pecah
+
+if alarm_on == True:
     print("ALARM ON")
 
-elif jendela_pecah :
-    print("ALARM ON")
 else:
     print("AMAN AJA CS")
 
