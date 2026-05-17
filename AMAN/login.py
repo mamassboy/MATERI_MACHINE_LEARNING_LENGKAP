@@ -5,12 +5,13 @@ password_terdaftar = input("Daftarkan password Anda: ")
 
 Simpan_pass = {username_terdaftar: password_terdaftar}
 saldo = 1000000  # Contoh saldo awal
+riwayat_transaksi = []  # List untuk menyimpan riwayat transaksi
 
 status_server_utama = True
 status_server_cadangan = False
 
 def server():
-    
+    global status_server_utama, status_server_cadangan
     if status_server_utama != status_server_cadangan:
         print("Server aktif, menjalankan sistem dengan lancar.")
         main()
@@ -46,9 +47,9 @@ def menu():
     while True:
         print("Selamat datang di Sistem AI Anti-Fraud & Keamanan Brankas Digital!")
         print("1. Cek Keamanan Brankas")
-        print("2.Tarik tunai")
-        print("3.Setor tunai")
-        print("4.cek aset")
+        print("2. Proses Transaksi")
+        print("3. Cek Saldo")
+        print("4. Cek Riwayat Transaksi")
         print("0. Keluar")
         pilihan = input("Masukkan pilihan: ")
         
@@ -59,6 +60,12 @@ def menu():
             proses_transaksi()            
         elif pilihan == "3":
             print(f"Saldo Anda: {saldo}")
+        
+        elif pilihan == "4":
+            print("Riwayat Transaksi Anda:")
+            for transaksi in riwayat_transaksi:
+                print(transaksi)
+                
         elif pilihan == "0":
             print("Terima kasih telah menggunakan sistem kami. Sampai jumpa!")
         else:
@@ -72,13 +79,15 @@ def tarik_tunai():
         print("Saldo tidak cukup untuk melakukan penarikan.")
     else:
         saldo -= jumlah_tarik
-    print(f"Anda telah menarik {jumlah_tarik} dari brankas digital.")        
-    
-        
+    print(f"Anda telah menarik {jumlah_tarik} dari brankas digital.")
+    print ("Berikut adalah riwayat transaksi Anda:")
+    riwayat_transaksi.append(-jumlah_tarik)
+
 def setor_tunai():
     global saldo
     jumlah_setor = int(input("Masukkan jumlah yang ingin disetor: "))
-    saldo += jumlah_setor        
+    saldo += jumlah_setor
+    riwayat_transaksi.append(jumlah_setor)       
                    
 def proses_transaksi():
     print("Menu transaksi:")
