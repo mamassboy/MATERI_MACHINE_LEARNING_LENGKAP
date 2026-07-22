@@ -12,6 +12,12 @@ umur = input("Masukkan umur Anda: ")
 print("Nama Anda adalah:", nama)
 print("Umur Anda adalah:", umur)
 
+# inputan selalu dikembalikan sebagai string, jadi jika Anda ingin menggunakan data yang dimasukkan sebagai angka (misalnya untuk perhitungan), Anda perlu mengonversinya ke tipe data yang sesuai, seperti int atau float. Misalnya, jika Anda ingin mengonversi umur menjadi integer, Anda dapat melakukannya seperti ini:
+
+print("Tipe data umur:", type(umur))
+
+# Tipe data umur: <class 'str'>
+
 '''
 Masukkan nama Anda: Dimas 
 Masukkan umur Anda: 21
